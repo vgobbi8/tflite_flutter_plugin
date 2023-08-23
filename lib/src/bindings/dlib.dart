@@ -1,7 +1,6 @@
 import 'dart:ffi';
 import 'dart:io';
 
-import 'package:path/path.dart' as Path;
 
 const Set<String> _supported = {'linux', 'mac', 'win'};
 
@@ -36,7 +35,7 @@ DynamicLibrary tflitelib = () {
     return DynamicLibrary.process();
   } else {    
     return DynamicLibrary.open(
-      Directory(Platform.resolvedExecutable).parent.path + '/blobs/${binaryName}'
+      Directory(Platform.resolvedExecutable).parent.path + '/blobs/$binaryName'
     );
   }
 }();
